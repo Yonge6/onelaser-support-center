@@ -6,8 +6,8 @@
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const shapes={arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',external:'<path d="M14 3h7v7M21 3 10 14M10 5H3v16h16v-7"/>',search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',chevron:'<path d="m9 5 7 7-7 7"/>',book:'<path d="M3 4h7l2 2 2-2h7v16h-7l-2 2-2-2H3ZM12 6v16"/>',tool:'<path d="m21 3-5 5-3-3 5-5a7 7 0 0 0-9 9L2 16a4 4 0 0 0 6 6l7-7a7 7 0 0 0 6-12Z"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',close:'<path d="m5 5 14 14M5 19 19 5"/>',shield:'<path d="m12 3 8 3v6c0 6-8 9-8 9s-8-3-8-9V6ZM8 12l3 3 5-6"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',link:'<path d="m10 7 3-3a5 5 0 0 1 7 7l-3 3M14 17l-3 3a5 5 0 0 1-7-7l3-3M8 16l8-8"/>',home:'<path d="m3 10 9-7 9 7v11H3ZM9 21v-8h6v8"/>'};
   const icon=n=>`<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${shapes[n]||shapes.book}</svg>`;
-  const date=v=>v?new Date(v).toLocaleDateString(admin||V.language==='zh'?'zh-CN':'en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'Asia/Shanghai'}):'Not provided';
-  const localTime=v=>v?new Date(v*1000).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false}):'未提供';
+  const date=v=>v?new Date(v).toLocaleDateString(V.language==='zh'?'zh-CN':'en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'Asia/Shanghai'}):'Not provided';
+  const localTime=v=>v?new Date(v*1000).toLocaleString(V.language==='zh'?'zh-CN':'en-US',{timeZone:'Asia/Shanghai',hour12:false}):'未提供';
   const topicNames={'getting-started':'Getting started',troubleshooting:'Troubleshooting',downloads:'Software & downloads',guides:'Guides & everyday use'};
   const statusNames={source_unreviewed:'原文待审核',in_review:'审核中',changes_requested:'待补充',content_reviewed:'内容已复核'};
   let renderEpoch=0;

@@ -8,9 +8,10 @@ Chinese/English interface with 236 retained public Wiki pages. Technical article
 - 中文界面: https://yonge6.github.io/onelaser-support-center/?lang=zh
 - English UI: https://yonge6.github.io/onelaser-support-center/?lang=en
 - Original source: https://wiki.1laser.com/
+- SLA proposal / SLA 待审核草案: [中文与 English](docs/sla-draft.md)
 
 The UI follows the existing OneLaser Certia typography and website design system. Product imagery, Wiki content and Certia assets retain their respective ownership and existing usage terms.
 
-This repository contains only the public customer interface and public source snapshots. No customer tickets, original support emails, DingTalk messages, credentials, local review records, SLA operation data or private APIs are exported.
+This repository contains the public customer interface, public source snapshots and the explicitly requested read-only SLA proposal. The SLA proposal is pending human review and is not an active external commitment. No customer tickets, original support emails, DingTalk messages, credentials, local review records, SLA operation data or private APIs are exported.
 
 Plain static HTML/CSS/JavaScript + JSON. Serve this directory with a static server or GitHub Pages. Hash routes support machine families, search and articles without a backend. No customer-send or publishing action exists here.
