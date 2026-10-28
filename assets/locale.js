@@ -3,6 +3,7 @@
   'use strict';
   const base=new URL('../',document.currentScript.src).pathname.replace(/\/$/,'');
   const publicMode=document.querySelector('meta[name="onelaser-mode"]')?.content==='public';
+  const revision=document.querySelector('meta[name="onelaser-assets-revision"]')?.content||'';
   let language='en';
   try{language=new URLSearchParams(location.search).get('lang')||localStorage.getItem('onelaser-support-language')||(navigator.language.startsWith('zh')?'zh':'en');}catch{}
   if(!['zh','en'].includes(language))language='en';
@@ -46,7 +47,11 @@
     }
     return result?value.replace(clean,result):value;
   }
-  const path=value=>value.startsWith('/')&&!value.startsWith('//')?base+value:value;
+  const path=value=>{
+    let result=value.startsWith('/')&&!value.startsWith('//')?base+value:value;
+    if(revision&&(result.startsWith(base+'/assets/')||result.startsWith(base+'/data/')))result+=(result.includes('?')?'&':'?')+'v='+revision;
+    return result;
+  };
   function markup(html,admin=false){
     const t=document.createElement('template');t.innerHTML=html;
     for(const el of t.content.querySelectorAll('[href],[src]'))for(const attr of ['href','src']){const v=el.getAttribute(attr);if(v)el.setAttribute(attr,path(v));}
